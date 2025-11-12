@@ -37,6 +37,13 @@ class Practice():
         #time.sleep(4)
         date = WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,"//button[.//abbr[contains(@aria-label, '14') and contains(@aria-label, 'November 2025')]]")))
         date.click()
+        #first = driver.find_element(By.XPATH,"//li[contains(@class, 'disabled')]/a[@aria-label='First']").get_attribute("class")
+       # previous = driver.find_element(By.XPATH,"//li[contains(@class, 'disabled')]/a[@aria-label='Previous']").is_enabled()
+        if "disabled" in driver.find_element(By.XPATH, "//li[a[@aria-label='First']]").get_attribute("class"):
+            print("It's disabled")
+        if "disabled" in driver.find_element(By.XPATH, "//li[a[@aria-label='Previous']]").get_attribute("class"):
+            print("It also  disabled")
+
         time.sleep(4)
 
 
