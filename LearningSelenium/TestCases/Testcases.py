@@ -58,6 +58,16 @@ class testcase():
         else:
             print("Different")
 
+        promo= WebDriverWait(self.browser,10).until(EC.presence_of_element_located((By.XPATH,"//*[@class= 'promoCode']")))
+        promo.send_keys("rahulshettyacademy")
+        self.browser.find_element(By.XPATH,"//*[text()= 'Apply']").click()
+        msg = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH,"//*[text()= 'Code applied ..!']")))
+        successmsg = msg.text
+        if successmsg == "Code applied ..!":
+            print("Shilpi is doing good work")
+        else:
+            print("code did not work")
+
 
 
 
