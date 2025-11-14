@@ -43,7 +43,7 @@ class Flightdeals():
 
     @staticmethod
     def readfile():
-        with open("Citiesfor flight.txt", "r") as f:
+        with open("../../Citiesfor flight.txt", "r") as f:
          line = f.readline().strip()
          origin_element, destination_element = line.split(",")
          return origin_element, destination_element
