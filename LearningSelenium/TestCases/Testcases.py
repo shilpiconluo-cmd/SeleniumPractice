@@ -4,7 +4,7 @@ import time
 
 import os    # to delete files
 
-from Browser import Browsercall
+from LearningSelenium.Browser import Browsercall
 
 
 class testcase():
