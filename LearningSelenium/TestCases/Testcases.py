@@ -25,10 +25,14 @@ class testcase():
             for item in text:
                 file.write(item +"\n")
         time.sleep(4)
+        buttons = self.browser.find_elements(By.XPATH,"//div[@class='product-action']/button")
+        for button in buttons:
+            button.click()
 
-        WebDriverWait(self.browser,10).until(EC.element_to_be_clickable(C)).click()
-        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(A)).click()
-        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(B)).click()
+
+        #WebDriverWait(self.browser,10).until(EC.element_to_be_clickable(C)).click()
+       # WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(A)).click()
+        #WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(B)).click()
         cart =  WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='cart-icon']")))
         cart.click()
         button =  WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH, "//*[text()='PROCEED TO CHECKOUT']")))
