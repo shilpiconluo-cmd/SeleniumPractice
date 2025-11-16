@@ -43,7 +43,7 @@ class testcase():
         )
         sum =0
         for item in total_amounts:
-            print((repr(item.text)))
+            print((repr (item.text)))
             sum = sum + int(item.text)
         print(sum)
 
@@ -64,6 +64,8 @@ class testcase():
 
         assert float(discount ) < int(sum)
         print("discount applied successfully")
+        self.browser.get_screenshot_as_file("promo.png")
+        self.browser.save_screenshot("code.png")
 
 
 
