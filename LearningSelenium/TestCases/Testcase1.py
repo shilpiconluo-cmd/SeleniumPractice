@@ -34,25 +34,38 @@ class testcase():
                 break
             list2.append(product.text)
 
-
-
-
-
         print(list2)
         if list1== list2:
             print("same veggies are there")
 
+        total_amounts = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_all_elements_located((By.XPATH, "//tr/td[5]/p[@class='amount']"))
+        )
+        sum =0
+        for item in total_amounts:
+            print((repr(item.text)))
+            sum = sum + int(item.text)
+        print(sum)
+
         promo = WebDriverWait(self.browser, 10).until(
-        EC.presence_of_element_located((By.XPATH, "//*[@class= 'promoCode']")))
+            EC.presence_of_element_located((By.XPATH, "//*[@class= 'promoCode']")))
         promo.send_keys("rahulshettyacademy")
         self.browser.find_element(By.XPATH, "//*[text()= 'Apply']").click()
         msg = WebDriverWait(self.browser, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//*[text()= 'Code applied ..!']")))
+            EC.visibility_of_element_located((By.XPATH, "//*[text()= 'Code applied ..!']")))
         successmsg = msg.text
         if successmsg == "Code applied ..!":
-         print("Shilpi is doing good work")
+            print("Shilpi is doing good work")
         else:
-         print("code did not work")
+            print("code did not work")
+
+        discount = self.browser.find_element(By.CSS_SELECTOR,".discountAmt").text
+        print(discount)
+
+        assert float(discount ) < int(sum)
+        print("discount applied successfully")
+
+
 
 TC= testcase()  #This automatically runs the __init__() method, so the browser opens.
 TC.tc1()
