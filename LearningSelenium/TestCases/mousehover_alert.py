@@ -2,13 +2,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options   # how borwser shpuld behave, for sele 4 n more
 from selenium.webdriver import ActionChains
 import os
 import time
 
 class mouseh():
     def mohv(self):
-        driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("--start-maximized")
+        options.add_argument("--ignore-caertificate-errors")
+        driver = webdriver.Chrome(options=options)
         driver.get("https://rahulshettyacademy.com/AutomationPractice/")
         action1 = ActionChains(driver)
        # button1 = WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.ID,"mousehover")))
