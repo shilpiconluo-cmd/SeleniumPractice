@@ -12,6 +12,7 @@ class mouseh():
         options = Options()
         options.add_argument("--start-maximized")
         options.add_argument("--ignore-caertificate-errors")
+        options.add_argument("headless")    # browswr will not invoke
         driver = webdriver.Chrome(options=options)
         driver.get("https://rahulshettyacademy.com/AutomationPractice/")
         action1 = ActionChains(driver)
