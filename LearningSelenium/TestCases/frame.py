@@ -27,8 +27,6 @@ class Frame():
         os.remove(file_name)
 
 
-
-
 obj = Frame()
 obj.frame1()
 
