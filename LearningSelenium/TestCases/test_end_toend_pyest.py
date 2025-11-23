@@ -7,7 +7,9 @@ from selenium.webdriver import ActionChains
 import os
 import time
 import pytest
+### this test case we use pytest to run tthe test, using test_ format for testcase in form of function
 
+#command to execute pytest test_end_toend_pyest.py::TestEnd::test_shopping -v -s --html==test_results.html
 
 
 
