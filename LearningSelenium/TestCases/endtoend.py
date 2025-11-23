@@ -9,7 +9,8 @@ import time
 
 
 
-class END():
+
+class TESTEND():
     def shopping(self):
         options = Options()
         options.add_argument("--start-maximized")
@@ -31,8 +32,8 @@ class END():
         driver.get_screenshot_as_file("shopping.png")
         driver.find_element(By.XPATH,"//input[@type='submit']").click()
         text3 = WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH,"//div[contains(@class,'alert-success')]"))).text
-        print(text3)
+        assert "Success! Thank you!" in text3
 
 
-obj = END()
+obj = TESTEND()
 obj.shopping()
